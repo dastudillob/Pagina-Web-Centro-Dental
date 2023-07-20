@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Centro Dental Padre Hurtado | Datos Del Paciente</title>
+
+    <!-- Favicon -->
+    <link href="../imagen/favicon.ico" rel="icon">
+
+    <!-- Boostrap 4 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Archivo de estilo -->
+    <link href="../css/estilo.css" rel="stylesheet">
+
+    <!-- Datatable CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+</head>
+
+<body>
+    <header class="header" id="header">
+        <!-- Logo -->
+        <div id="logo">
+            <a href="../index.html"><img src="../imagen/logo.png" alt="Centro Dental Padre Hurtado" title="Logo" /> CENTRO DENTAL "Padre Hurtado" </a>
+        </div>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-sm navbar-custom">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="buscarpaciente.html">Buscar Paciente<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="buscardentista.html">Buscar Dentista<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="nuevopaciente.html">Nuevo Paciente<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Calendario
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="caledariovinadelmar.html">Viña del Mar</a>
+                    <a class="dropdown-item" href="calendarioquilpue.html">Quilpue</a>
+                    <a class="dropdown-item" href="calendarioquillota.html">Quillota</a>
+                    <a class="dropdown-item" href="calendarioconcon.html">Con Con</a>
+                    <a class="dropdown-item" href="calendariolacalera.html">La Calera</a>
+                  </div>
+                </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" href="presupuesto.html">Presupuesto<span class="sr-only"></span></a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" href="historialpagos.html">Historial de Pagos<span class="sr-only"></span></a>
+              </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html" onclick="Salir()">Salir<span class="sr-only"></span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+
+    <!-- Datos del paciente -->
+    <section id="datospaciente">
+      <!-- Pestañas de datos, tratamiento y pago -->
+      <div class="card">
+        <!-- Header -->
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs" id="listadatos" role="tablist">
+            <!-- Datos -->
+            <li class="nav-item">
+              <a class="nav-link active" href="#datos" role="tab" aria-controls="datos" aria-selected="true">Datos</a>
+            </li>
+            <!-- Tratamiento -->
+            <li class="nav-item">
+              <a class="nav-link"  href="#tratamiento" role="tab" aria-controls="tratamiento" aria-selected="false">Tratamiento</a>
+            </li>
+            <!-- Pago -->
+            <li class="nav-item">
+              <a class="nav-link" href="#pago" role="tab" aria-controls="pago" aria-selected="false">Pago</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Body -->
+        <div class="card-body">                
+          <div class="tab-content mt-3">
+            <!-- Datos -->
+            <div class="tab-pane active" id="datos" role="tabpanel">
+              <form>
+                <h2>Antecedentes Personales</h2>
+      
+                <!-- Fecha -->
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="fechapaciente">Fecha<span>*</span></label>
+                      <input type="date" class="form-control" id="fechapaciente" value="2021-05-31" disabled>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- RUT -->
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="rut">RUT<span>*</span></label>
+                      <input type="text" class="form-control" placeholder="" id="rut" value="12.345.678-9" onkeyup="FormatRUT()" disabled>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- Nombre y Apellidos-->
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="paterno">Apellido Paterno<span>*</span></label>
+                      <input type="text" class="form-control" placeholder="" id="paterno" value="Astudillo" disabled>
+                    </div>
+                  </div>
+            
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="materno">Apellido Materno<span>*</span></label>
+                      <input type="text" class="form-control" placeholder="" id="materno" value="Barrientos" disabled>
+                    </div>
+                  </div>
+      
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="nombres">Nombres<span>*</span></label>
+                      <input type="text" class="form-control" placeholder="" id="nombres" value="Daniel Ignacio" disabled>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- Sexo y Edad-->
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="radio">
+                        <label for="sexo">Sexo<span>*</span></label><br/>
+                        <input type="radio" name="sexo" id="sexoM" value="M" checked disabled> M
+                        <input type="radio" name="sexo" id="sexoF" value="F" disabled> F
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="edad">Edad<span>*</span></label>
+                      <input type="text" class="form-control" placeholder="" id="edad" value="27" disabled>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Dirección, Ciudad y Teléfono-->
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="dirección">Dirección<span>*</span></label>
+                      <input type="text" class="form-control" placeholder="" id="dirección" value="Calle Montt #37" disabled>
+                    </div>
+                  </div>
+      
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="ciudad">Ciudad<span>*</span></label>
+                      <input type="text" class="form-control" placeholder="" id="ciudad" value="Quilpue" disabled>
+                    </div>
+                  </div>
+      
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="teléfono">Teléfono<span>*</span></label>
+                      <input type="tel" class="form-control" placeholder="" id="teléfono" onkeyup="FormatTeléfono()" value="+56 7 12345678" disabled>
+                    </div>
+                  </div>
+                </div>
+      
+                <h2>Historial Médico</h2>
+      
+                <!-- Hospitalizado -->
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="radio">
+                        <label for="hospitalizado">He estado hospitalizado<span>*</span></label><br/>
+                        <input type="radio" name="hospitalizado" id="hospitalizadoSi" value="Si" disabled> Si
+                        <input type="radio" name="hospitalizado" id="hospitalizadoNo" value="No" checked disabled> No
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <label for="hospitalizadoPor">Por qué</label>
+                      <input type="text" class="form-control" placeholder="" id="hospitalizadoPor" disabled>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- Hipertensión -->
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="radio">
+                        <label for="hipertensión">Hipertensión<span>*</span></label><br/>
+                        <input type="radio" name="hipertensión" id="hipertensiónSi" value="Si" checked disabled> Si
+                        <input type="radio" name="hipertensión" id="hipertensiónNo" value="No" disabled> No
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="radio">
+                        <label for="hipertensiónControl">Controlada</label><br/>
+                        <input type="radio" name="hipertensiónControl" id="hipertensiónControlSi" value="Si" checked disabled> Si
+                        <input type="radio" name="hipertensiónControl" id="hipertensiónControlNo" value="No" disabled> No
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- Alérgico -->
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="radio">
+                        <label for="alérgico">Alérgico a algo<span>*</span></label><br/>
+                        <input type="radio" name="alérgico" id="alérgicoSi" value="Si" checked disabled> Si
+                        <input type="radio" name="alérgico" id="alérgicoNo" value="No" disabled> No
+                      </div>
+                    </div>
+                  </div>  
+                  
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <label for="alérgicoA">A qué</label>
+                      <input type="text" class="form-control" placeholder="" id="alérgicoA" value="Polen" disabled>
+                    </div>
+                  </div>   
+                </div>
+      
+                <!-- Diabetes -->
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="radio">
+                        <label for="diabetes">Diabetes<span>*</span></label><br/>
+                        <input type="radio" name="diabetes" id="diabetesSi" value="Si" disabled> Si
+                        <input type="radio" name="diabetes" id="diabetesNo" value="No" checked disabled> No
+                      </div>
+                    </div>
+                  </div>  
+                  
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <label for="otros">Otros</label>
+                      <input type="text" class="form-control" placeholder="" id="otros" disabled>
+                    </div>
+                  </div>   
+                </div>         
+      
+                <!-- Medicamentos -->
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="radio">
+                        <label for="medicamentos">Medicamentos<span>*</span></label><br/>
+                        <input type="radio" name="medicamentos" id="medicamentosSi" value="Si" disabled> Si
+                        <input type="radio" name="medicamentos" id="medicamentosNo" value="No" checked disabled> No
+                      </div>
+                    </div>
+                  </div>  
+                  
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <label for="cual">Cual</label>
+                      <input type="text" class="form-control" placeholder="" id="cual" disabled>
+                    </div>
+                  </div>   
+                </div>   
+                
+                <div id="error"></div>
+                <div id="success"></div>
+                <button type="button" class="btn btn-secondary" id="editar" onclick="Editar()" style="display: block;">Editar</button>
+                <button type="button" class="btn btn-success" id="guardar" onclick="Guardar()" style="display: none;">Guardar</button>
+                <button type="button" class="btn btn-secondary" id="cancelaredicion" onclick="CancelarEdicion()" style="display: none;">Cancelar</button>
+              </form>          
+            </div>
+
+            <!-- Tratamiento -->
+            <div class="tab-pane" id="tratamiento" role="tabpanel" aria-labelledby="tratamiento-tab">  
+              <p><a data-toggle="collapse" href="#agregar" role="button" aria-expanded="false" aria-controls="agregar"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar Tratamiento</a></p>
+              <div class="collapse" id="agregar">
+                <div class="card card-body">
+                  <!-- Agregar nuevo tratamiento -->
+                  <form id="nuevotratamiento">
+                    <!-- Fecha -->
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="fechatratamiento">Fecha<span>*</span></label>
+                          <input type="date" class="form-control" id="fechatratamiento">
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Dentista -->
+                    <div class="row">
+                      <div class="col-sm-6">
+                          <label for="dentista">Dentista<span>*</span></label>
+                          <select id="dentista" class="form-control">
+                            <option selected disabled>Seleccione...</option>
+                            <option value="10.392.581-9">Andres Jeremy</option>
+                            <option value="12.398.321-1">Teodora Denisse</option>
+                            <option value="12.609.601-1">Marjorie Fidelia</option>
+                            <option value="15.774.658-8">Solón Diego</option>
+                            <option value="20.991.520-0">Eustasio Jorge</option>
+                            <option value="9.405.712-4">Stephanie Alexandra</option>
+                            <option value="9.9540.552-6">Agueda</option>
+                          </select>
+                      </div>
+                    </div>
+
+                    <!-- Motivo de Consulta -->
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <label for="motivo">Motivo de Consulta<span>*</span></label>
+                            <textarea class="form-control" id="motivo" rows="3"></textarea>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div id="errortratamiento"></div>
+                    <div id="successtratamiento"></div>
+                    <button type="button" class="btn btn-success" onclick="AgregarTratamiento()">Agregar</button>
+                    <button type="button" class="btn btn-secondary" onclick="CancelarTratamiento()" data-toggle="collapse" href="#agregar">Cancelar</button>
+                    </form>
+                </div>
+              </div>
+
+              <!-- Ver historial de tratamiento-->
+              <h2 id="historial">Historial de Tratamiento</h2>
+
+              <table id="tablatratamiento" class="table table-striped table-bordered" style="width:100%">
+                <thead id="tratamientotable">
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Dentista</th>
+                        <th>Motivo de Consulta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2020-05-20</td>
+                        <td>Stephanie Alexandra</td>
+                        <td>Endodoncia de incisivos.</td>
+                    </tr>
+                    <tr>
+                        <td>2018-12-15</td>
+                        <td>Stephanie Alexandra</td>
+                        <td>Blanqueamiento laser.</td>
+                    </tr>
+                    <tr>
+                        <td>2018-09-25</td>
+                        <td>Andres Jeremy</td>
+                        <td>Limpieza dental profunda.</td>
+                    </tr>
+                  </tbody>
+                  </table>
+            </div>
+                   
+            <!-- Pago -->
+            <div class="tab-pane" id="pago" role="tabpanel" aria-labelledby="pago-tab">
+              <p><a data-toggle="collapse" href="#agregarpago" role="button" aria-expanded="false" aria-controls="agregarpago"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar Pago</a></p>
+              <div class="collapse" id="agregarpago">
+                <div class="card card-body">
+                  <!-- Agregar nuevo pago -->
+                  <form id="nuevopago">
+                    <!-- Fecha -->
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="fechapago">Fecha<span>*</span></label>
+                          <input type="date" class="form-control" id="fechapago">
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Monto -->
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="monto">Monto<span>*</span></label>
+                          <input type="text" class="form-control" id="monto" data-type="currency">
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Forma de Pago -->
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <label for="forma">Forma de Pago<span>*</span></label>
+                        <select id="forma" class="form-control">
+                          <option selected disabled>Seleccione...</option>
+                          <option value="Efectivo">Efectivo</option>
+                          <option value="Tarjeta">Tarjeta</option>
+                          <option value="Cheque">Cheque</option>
+                        </select>
+                      </div>
+
+                      <!-- Estado -->
+                      <div class="col-sm-6">
+                        <label for="estado">Estado<span>*</span></label>
+                        <select id="estado" class="form-control">
+                          <option selected disabled>Seleccione...</option>
+                          <option value="Cancelado">Cancelado</option>
+                          <option value="Pendiente">Pendiente</option>
+                        </select>
+                      </div>
+                    </div>                   
+
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <label for="observaciones">Observaciones</label>
+                            <textarea class="form-control" id="observaciones" rows="3"></textarea>
+                        </div>
+                      </div>
+                    </div>   
+                    <div id="errorpago"></div>
+                    <div id="successpago"></div>
+                    <button type="button" class="btn btn-success" onclick="AgregarPago()">Agregar</button>
+                    <button type="button" class="btn btn-secondary" onclick="CancelarPago()" data-toggle="collapse" href="#agregarpago">Cancelar</button>
+                    </form>                
+            </div>
+          </div>
+
+              <!-- Ver historial de pago-->
+              <h2 id="historial">Historial de Pagos</h2>
+
+              <table id="tablapago" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Monto</th>
+                        <th>Forma de Pago</th>
+                        <th>Estado</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2018-09-25</td>
+                        <td>$63.000</td>
+                        <td>Efectivo</td>
+                        <td>Cancelado</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2018-12-15</td>
+                        <td>$136.000</td>
+                        <td>Tarjeta</td>
+                        <td>Cancelado</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2020-05-20</td>
+                        <td>$89.000</td>
+                        <td>Cheque</td>
+                        <td>Pendiente</td>
+                        <td>Primer abono del total.</td>
+                    </tr>
+                  </tbody>
+                  </table>
+        </div>
+      </div>
+      </div>
+      </div>
+    </section>
+
+     <!-- Boostrap 4 JS-->
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Archivo de JS -->
+    <script src="../javascript/datospaciente.js"></script>
+
+    <!-- Datatable JS -->
+   <script type="text/javascript" src="../javascript/datatables.js"></script>
+    
+</body>
+</html>

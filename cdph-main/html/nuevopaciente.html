@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Centro Dental Padre Hurtado | Nueva Paciente</title>
+
+    <!-- Favicon -->
+    <link href="../imagen/favicon.ico" rel="icon">
+
+    <!-- Boostrap 4 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Archivo de estilo -->
+    <link href="../css/estilo.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <!-- Logo -->
+        <div id="logo">
+            <a href="../index.html"><img src="../imagen/logo.png" alt="Centro Dental Padre Hurtado" title="Logo" /> CENTRO DENTAL "Padre Hurtado" </a>
+        </div>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-sm navbar-custom">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="buscarpaciente.html">Buscar Paciente<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="buscardentista.html">Buscar Dentista<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item active">
+                  <a class="nav-link" href="nuevopaciente.html">Nuevo Paciente<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Calendario
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="caledariovinadelmar.html">Viña del Mar</a>
+                    <a class="dropdown-item" href="calendarioquilpue.html">Quilpue</a>
+                    <a class="dropdown-item" href="calendarioquillota.html">Quillota</a>
+                    <a class="dropdown-item" href="calendarioconcon.html">Con Con</a>
+                    <a class="dropdown-item" href="calendariolacalera.html">La Calera</a>
+                  </div>
+                </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" href="presupuesto.html">Presupuesto<span class="sr-only"></span></a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" href="historialpagos.html">Historial de Pagos<span class="sr-only"></span></a>
+              </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html" onclick="Salir()">Salir<span class="sr-only"></span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+
+    <!-- Nuevo Paciente -->
+    <section id="nuevopaciente">
+      <div class="container">
+        <form>
+          <h2>Antecedentes Personales</h2>
+
+          <!-- Fecha -->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="fecha">Fecha<span>*</span></label>
+                <input type="date" class="form-control" id="fecha">
+              </div>
+            </div>
+          </div>
+
+          <!-- RUT -->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="rut">RUT<span>*</span></label>
+                <input type="text" class="form-control" placeholder="" id="rut" onkeyup="FormatRUT()">
+              </div>
+            </div>
+          </div>
+
+          <!-- Nombre y Apellidos-->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="paterno">Apellido Paterno<span>*</span></label>
+                <input type="text" class="form-control" placeholder="" id="paterno">
+              </div>
+            </div>
+      
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="materno">Apellido Materno<span>*</span></label>
+                <input type="text" class="form-control" placeholder="" id="materno">
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="nombres">Nombres<span>*</span></label>
+                <input type="text" class="form-control" placeholder="" id="nombres">
+              </div>
+            </div>
+          </div>
+
+          <!-- Sexo y Edad-->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="radio">
+                  <label for="sexo">Sexo<span>*</span></label><br/>
+                  <input type="radio" name="sexo" id="sexoM" value="M"> M
+                  <input type="radio" name="sexo" id="sexoF" value="F"> F
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="edad">Edad<span>*</span></label>
+                <input type="text" class="form-control" placeholder="" id="edad">
+              </div>
+            </div>
+          </div>
+      
+          <!-- Dirección, Ciudad y Teléfono-->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="dirección">Dirección<span>*</span></label>
+                <input type="text" class="form-control" placeholder="" id="dirección">
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="ciudad">Ciudad<span>*</span></label>
+                <input type="text" class="form-control" placeholder="" id="ciudad">
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="teléfono">Teléfono<span>*</span></label>
+                <input type="tel" class="form-control" placeholder="" id="teléfono" onkeyup="FormatTeléfono()">
+              </div>
+            </div>
+          </div>
+
+          <h2>Historial Médico</h2>
+
+          <!-- Hospitalizado -->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="radio">
+                  <label for="hospitalizado">He estado hospitalizado<span>*</span></label><br/>
+                  <input type="radio" name="hospitalizado" id="hospitalizadoSi" value="Si"> Si
+                  <input type="radio" name="hospitalizado" id="hospitalizadoNo" value="No"> No
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-8">
+              <div class="form-group">
+                <label for="hospitalizadoPor">Por qué</label>
+                <input type="text" class="form-control" placeholder="" id="hospitalizadoPor">
+              </div>
+            </div>
+          </div>
+
+          <!-- Hipertensión -->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="radio">
+                  <label for="hipertensión">Hipertensión<span>*</span></label><br/>
+                  <input type="radio" name="hipertensión" id="hipertensiónSi" value="Si"> Si
+                  <input type="radio" name="hipertensión" id="hipertensiónNo" value="No"> No
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="radio">
+                  <label for="hipertensiónControl">Controlada</label><br/>
+                  <input type="radio" name="hipertensiónControl" id="hipertensiónControlSi" value="Si"> Si
+                  <input type="radio" name="hipertensiónControl" id="hipertensiónControlNo" value="No"> No
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alérgico -->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="radio">
+                  <label for="alérgico">Alérgico a algo<span>*</span></label><br/>
+                  <input type="radio" name="alérgico" id="alérgicoSi" value="Si"> Si
+                  <input type="radio" name="alérgico" id="alérgicoNo" value="No"> No
+                </div>
+              </div>
+            </div>  
+            
+            <div class="col-sm-8">
+              <div class="form-group">
+                <label for="alérgicoA">A qué</label>
+                <input type="text" class="form-control" placeholder="" id="alérgicoA">
+              </div>
+            </div>   
+          </div>
+
+          <!-- Diabetes -->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="radio">
+                  <label for="diabetes">Diabetes<span>*</span></label><br/>
+                  <input type="radio" name="diabetes" id="diabetesSi" value="Si"> Si
+                  <input type="radio" name="diabetes" id="diabetesNo" value="No"> No
+                </div>
+              </div>
+            </div>  
+            
+            <div class="col-sm-8">
+              <div class="form-group">
+                <label for="otros">Otros</label>
+                <input type="text" class="form-control" placeholder="" id="otros">
+              </div>
+            </div>   
+          </div>         
+
+          <!-- Medicamentos -->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="radio">
+                  <label for="medicamentos">Medicamentos<span>*</span></label><br/>
+                  <input type="radio" name="medicamentos" id="medicamentosSi" value="Si"> Si
+                  <input type="radio" name="medicamentos" id="medicamentosNo" value="No"> No
+                </div>
+              </div>
+            </div>  
+            
+            <div class="col-sm-8">
+              <div class="form-group">
+                <label for="cual">Cual</label>
+                <input type="text" class="form-control" placeholder="" id="cual">
+              </div>
+            </div>   
+          </div>   
+
+          <div id="error"></div>
+          <button type="button" class="btn btn-success" onclick="EnviarNuevoPaciente()">Enviar</button>
+          <input id="reiniciar" class="btn btn-secondary" type="reset" value="Reiniciar" onclick="Reiniciar()">
+        </form>
+      </div>
+
+    </section>
+
+    <!-- Boostrap 4 JS-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Archivo de JS -->
+   <script src="../javascript/enviarnuevopaciente.js"></script>
+    
+
+</body>
+</html>

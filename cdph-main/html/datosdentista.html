@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Centro Dental Padre Hurtado | Datos del Dentista</title>
+
+    <!-- Favicon -->
+    <link href="../imagen/favicon.ico" rel="icon">
+
+    <!-- Boostrap 4 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Archivo de estilo -->
+    <link href="../css/estilo.css" rel="stylesheet">
+
+    <!-- Datatable CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+</head>
+
+<body>
+    <header class="header" id="header">
+        <!-- Logo -->
+        <div id="logo">
+            <a href="../index.html"><img src="../imagen/logo.png" alt="Centro Dental Padre Hurtado" title="Logo" /> CENTRO DENTAL "Padre Hurtado" </a>
+        </div>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-sm navbar-custom">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="buscarpaciente.html">Buscar Paciente<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="buscardentista.html">Buscar Dentista<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="nuevopaciente.html">Nuevo Paciente<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Calendario
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="caledariovinadelmar.html">Viña del Mar</a>
+                        <a class="dropdown-item" href="calendarioquilpue.html">Quilpue</a>
+                        <a class="dropdown-item" href="calendarioquillota.html">Quillota</a>
+                        <a class="dropdown-item" href="calendarioconcon.html">Con Con</a>
+                        <a class="dropdown-item" href="calendariolacalera.html">La Calera</a>
+                      </div>
+                  </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="presupuesto.html">Presupuesto<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="historialpagos.html">Historial de Pagos<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html" onclick="Salir()">Salir<span class="sr-only"></span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+
+    <section id="datosdentista">
+        <h4>Lista de pacientes para dentista Angelica Ramos</h4>
+        <table id="listapaciente" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>RUT</th>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#" id="datos" onclick="Datos('1.234.567-8')">1.234.456-8</a></td>
+                    <td>Rodolfo Tobias</td>
+                    <td>Trevino</td>
+                    <td>Vidrio</td>
+                </tr>
+                <tr>
+                    <td><a href="#" id="datos" onclick="Datos('12.345.678-9')">12.345.678-9</a></td>
+                    <td>Zunilda Mathilda</td>
+                    <td>Guerrero</td>
+                    <td>Baeza</td>
+                </tr>
+                <tr>
+                    <td><a href="#" id="datos" onclick="Datos('5.972.321-9')">5.972.321-9</a></td>
+                    <td>Errolán</td>
+                    <td>Escobar</td>
+                    <td>Cepeda</td>
+                </tr>
+                <tr>
+                    <td><a href="#" id="datos" onclick="Datos('23.278.835-6')">23.278.835-6</a></td>
+                    <td>Andreína Kristin</td>
+                    <td>Armijo</td>
+                    <td>Valdés</td>
+                </tr>
+                <tr>
+                    <td><a href="#" id="datos" onclick="Datos('17.657.147-0')">17.657.147-0</a></td>
+                    <td>Fidelio Bruce</td>
+                    <td>Beltrán</td>
+                    <td>Garcia</td>
+                </tr>
+                <tr>
+                    <td><a href="#" id="datos" onclick="Datos('5.133.296-2')">5.133.296-2</a></td>
+                    <td>Millaray</td>
+                    <td>Cruz</td>
+                    <td>Crespo</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>RUT</th>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+
+    <!-- Boostrap 4 JS-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+   <!-- Archivo de JS -->
+   <script src="../javascript/datosdentista.js"></script>
+
+   <!-- Datatable JS -->
+   <script type="text/javascript" src="../javascript/datatables.js"></script>
+
+</body>
+</html>

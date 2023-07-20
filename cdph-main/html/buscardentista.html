@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Centro Dental Padre Hurtado | Buscar Dentista</title>
+
+    <!-- Favicon -->
+    <link href="../imagen/favicon.ico" rel="icon">
+
+    <!-- Boostrap 4 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Archivo de estilo -->
+    <link href="../css/estilo.css" rel="stylesheet">
+
+    <!-- Datatable CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+</head>
+
+<body>
+    <header class="header" id="header">
+        <!-- Logo -->
+        <div id="logo">
+            <a href="../index.html"><img src="../imagen/logo.png" alt="Centro Dental Padre Hurtado" title="Logo" /> CENTRO DENTAL "Padre Hurtado" </a>
+        </div>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-sm navbar-custom">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="buscarpaciente.html">Buscar Paciente<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="buscardentista.html">Buscar Dentista<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="nuevopaciente.html">Nuevo Paciente<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Calendario
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="caledariovinadelmar.html">Viña del Mar</a>
+                        <a class="dropdown-item" href="calendarioquilpue.html">Quilpue</a>
+                        <a class="dropdown-item" href="calendarioquillota.html">Quillota</a>
+                        <a class="dropdown-item" href="calendarioconcon.html">Con Con</a>
+                        <a class="dropdown-item" href="calendariolacalera.html">La Calera</a>
+                      </div>
+                  </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="presupuesto.html">Presupuesto<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="historialpagos.html">Historial de Pagos<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html" onclick="Salir()">Salir<span class="sr-only"></span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+
+     <!-- Buscar Dentista -->
+     <section id="buscardentista">
+      <h4>Buscar Dentista</h4>
+        <table id="tabladentista" class="table table-striped table-bordered" style="width:100%">
+          <thead>
+              <tr>
+                  <th>RUT</th>
+                  <th>Nombre</th>
+                  <th>Apellido Paterno</th>
+                  <th>Apellido Materno</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td><a href="#" id="datos" onclick="Datos('12.609.601-1')">12.609.601-1</a></td>
+                  <td>Marjorie Fidelia</td>
+                  <td>Arellano</td>
+                  <td>Uribe</td>
+              </tr>
+              <tr>
+                  <td><a href="#" id="datos" onclick="Datos('10.392.581-9')">10.392.581-9</a></td>
+                  <td>Andres Jeremy</td>
+                  <td>Gómez</td>
+                  <td>Bonilla</td>
+              </tr>
+              <tr>
+                  <td><a href="#" id="datos" onclick="Datos('15.774.658-8')">15.774.658-8</a></td>
+                  <td>Solón Diego</td>
+                  <td>Chavarría</td>
+                  <td>Toledo</td>
+              </tr>
+              <tr>
+                  <td><a href="#" id="datos" onclick="Datos('12.398.321-1')">12.398.321-1</a></td>
+                  <td>Teodora Denisse</td>
+                  <td>Paredes</td>
+                  <td>Osorio</td>
+              </tr>
+              <tr>
+                  <td><a href="#" id="datos" onclick="Datos('9.954.552-6')">9.954.552-6</a></td>
+                  <td>Agueda</td>
+                  <td>Guzmán</td>
+                  <td>Zamudio</td>
+              </tr>
+              <tr>
+                  <td><a href="#" id="datos" onclick="Datos('9.405.712-4')">9.405.712-4</a></td>
+                  <td>Stephanie Alexandra</td>
+                  <td>Arce</td>
+                  <td>Olmos</td>
+              </tr>
+              <tr>
+                  <td><a href="#" id="datos" onclick="Datos('20.991.520-0')">20.991.520-0</a></td>
+                  <td>Eustasio Jorge</td>
+                  <td>Villaseñor</td>
+                  <td>Montoya</td>
+              </tr>
+          </tbody>
+          <tfoot>
+              <tr>
+                  <th>RUT</th>
+                  <th>Nombre</th>
+                  <th>Apellido Paterno</th>
+                  <th>Apellido Materno</th>
+              </tr>
+          </tfoot>
+      </table>
+       
+    </section>
+
+    <!-- Boostrap 4 JS-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+   <!-- Archivo de JS -->
+   <script src="../javascript/buscardentista.js"></script>
+
+   <!-- Datatable JS -->
+   <script type="text/javascript" src="../javascript/datatables.js"></script>
+
+</body>
+</html>

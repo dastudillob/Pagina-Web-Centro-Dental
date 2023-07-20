@@ -1,0 +1,544 @@
+@charset "UTF-8";
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+    background-color:white;
+}
+
+/*--------------------------------------------------------------
+# Logo
+--------------------------------------------------------------*/
+#logo img {
+    margin-top: 1%;
+    max-width: 90px;
+    height: auto;
+}
+
+#logo a {
+    color:#88001b;
+    font-weight: 600;
+}
+
+#logo a:hover {
+    text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+# Barra de Navegación
+--------------------------------------------------------------*/
+.navbar-custom{
+    background-color: #88001b;
+    margin-top: 1%;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: rgb(197, 190, 190);
+}
+
+.navbar-custom .nav-item.active .nav-link {
+    color: white;
+}
+
+.navbar-custom .nav-item:hover .nav-link {
+    color: white;
+}
+
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/*--------------------------------------------------------------
+# Login
+--------------------------------------------------------------*/  
+#login .container{
+    height: 100%;
+    align-content: center;
+    margin-top: 10%;
+}
+    
+#login .card{
+    height: 275px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(156, 14, 14, 0.5) !important;
+   }
+    
+#login .card-header h3{
+    color: white;
+}
+        
+#login .input-group-prepend span{
+    width: 50px;
+    background-color: #88001b;
+    color: white;
+    border:0 !important;
+}
+    
+#login input:focus{
+    outline: 0 0 0 0  !important;
+    box-shadow: 0 0 0 0 !important;
+}
+    
+#login .login_btn{
+    color: white;
+    background-color: #88001b;
+    width: 100px;
+}
+    
+#login .login_btn:hover{
+    color: white;
+    background-color: #5f0a1d;
+}
+
+#login #error{
+    color: white;
+    text-align: center;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+
+/*--------------------------------------------------------------
+# Buscar Paciente
+--------------------------------------------------------------*/  
+
+#buscarpaciente {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+#buscarpaciente h4{
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+#buscarpaciente a{
+    color:black;
+}
+
+/*--------------------------------------------------------------
+# Buscar Dentista
+--------------------------------------------------------------*/  
+
+#buscardentista {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+#buscardentista h4{
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+#buscardentista a{
+    color:black;
+}
+
+/*--------------------------------------------------------------
+# Nuevo Paciente
+--------------------------------------------------------------*/  
+#nuevopaciente h2{
+    margin-bottom: 2%;
+    margin-top: 3%;
+}
+
+#nuevopaciente span{
+    color: red;
+}
+
+#nuevopaciente #sexoF, #hospitalizadoNo, #hipertensiónNo, #hipertensiónControlNo, #alérgicoNo, #diabetesNo, #medicamentosNo{
+    margin-left: 5%;
+}
+
+#nuevopaciente .btn {
+    margin-right: 2%;
+    margin-bottom: 7%;
+    margin-top: 2%;
+}
+
+#nuevopaciente #error{
+    color: red;
+    text-align: center;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+/*--------------------------------------------------------------
+# Datos Paciente
+--------------------------------------------------------------*/  
+#datospaciente .card {
+    margin-top: 3%;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-bottom: 5%;
+}
+
+#datospaciente span{
+    color: red;
+}
+
+#datospaciente #sexoF, #hospitalizadoNo, #hipertensiónNo, #hipertensiónControlNo, #alérgicoNo, #diabetesNo, #medicamentosNo{
+    margin-left: 5%;
+}
+
+#datospaciente #error, #errortratamiento, #errorpago{
+    color: red;
+    text-align: center;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+#datospaciente #success, #successtratamiento, #successpago{
+    color: green;
+    text-align: center;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+#datospaciente #datos .btn {
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+#datospaciente #tratamiento a{
+    text-decoration: none;
+}
+
+#datospaciente #tratamiento select {
+    margin-bottom: 4%;
+}
+
+#datospaciente #tratamiento .btn {
+    margin-right: 2%;
+}
+
+#datospaciente #tratamiento h2 {
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+#datospaciente #pago a{
+    text-decoration: none;
+}
+
+#datospaciente #pago select {
+    margin-bottom: 4%;
+}
+
+#datospaciente #pago .btn {
+    margin-right: 2%;
+}
+
+#datospaciente #pago h2 {
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+/*--------------------------------------------------------------
+# Datos Dentista
+--------------------------------------------------------------*/  
+
+#datosdentista {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+#datosdentista h4{
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+#datosdentista a{
+    color:black;
+}
+
+/*--------------------------------------------------------------
+# Presupuesto
+--------------------------------------------------------------*/  
+#presupuesto {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+#presupuesto h4{
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+#presupuesto #seleccioneservicio {
+    white-space: nowrap;
+    width: 1px;
+}
+
+#presupuesto #listaservicio {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 18px;
+}
+  
+#listaservicio th, #listaservicio td {
+    text-align: left;
+    padding: 12px;
+}
+  
+#listaservicio tr {
+    border-bottom: 1px solid #ddd;
+}
+  
+#listaservicio tr.header, #listaservicio tr:hover {
+    background-color: #f1f1f1;
+}
+
+#presupuesto #buscarservicio {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 2%;
+}
+
+#presupuesto #estimar {
+    text-align: center;
+    font-size: large;
+}
+
+#presupuesto #presupuestolista button{
+    margin-left: 2%;
+}
+
+#presupuesto input[type=range]{
+    margin-left: 5%;
+    width: 50%;
+    opacity: 0.8;
+    transition: opacity .2s;
+    -webkit-transition: .2s;
+}
+
+#presupuesto #estimar {
+    float: right;
+    width: 25%;
+    margin-right: 4%;
+}
+
+#presupuesto h5 {
+    margin-top: 1%;
+    margin-right: 2%;
+    float: right;
+}
+
+#presupuesto .card {
+    margin-top: 3%;
+}
+
+#presupuesto #info {
+    display: none;
+}
+
+#presupuesto #selected input{
+    margin-top: 1%;
+}
+
+#presupuesto #notass {
+    margin-top: 2%;
+}
+
+#presupuesto #info button{
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+/*--------------------------------------------------------------
+# Historial de Pagos
+--------------------------------------------------------------*/  
+#historialpagos {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+#historialpagos h4{
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+#historialpagos h5{
+    text-align: center;
+    margin-bottom: 1%;
+    margin-top: 3%;
+}
+
+
+#historialpagos #selecttype {
+    text-align: center;
+}
+
+#historialpagos button{
+    margin-right: 2%;
+}
+
+#historialpagos #diariocard button{
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+#historialpagos #mensualcard button{
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+#historialpagos #anualcard button{
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+#historialpagos #diariocard {
+    display: none;
+    text-align: center;
+}
+
+#historialpagos #mensualcard {
+    display: none;
+    text-align: center;
+}
+
+#historialpagos #anualcard {
+    display: none;
+    text-align: center;
+}
+
+#historialpagos #mens, #anu, #fechapagos{
+    width: 20%;
+    margin-left: 40%;
+}
+
+#historialpagos #diariotable, #mensualtable, #anualtable, #summary {
+    display: none;
+}
+
+#historialpagos #errordiario, #errormensual, #erroranual{
+    color: red;
+    text-align: center;
+    font-size: small;
+    margin-top: 1%;
+}
+
+#historialpagos #summary {
+    margin-bottom: 7%;
+    margin-top: 5%;
+}
+
+#historialpagos #summarytitle{
+    margin-bottom: 2%;
+}
+
+/*--------------------------------------------------------------
+# Calendario
+--------------------------------------------------------------*/  
+#calendario {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+#calendario h4 {
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+#calendario #dias th {
+    text-align: center;
+    width: 13.57%;
+}
+
+#calendario #dias th:nth-child(1) {
+    text-align: center;
+    width: 5%;
+}
+
+#calendario #dias .card {
+    margin-bottom: 5%;
+    border-color: gray;
+}
+
+#calendario #dias .card-body {
+    padding: 2%;
+}
+
+#calendario #dias .card[data-clickable=true]{
+    cursor: pointer;
+}
+
+#calendario #dias .card:hover {
+    border-color: black;
+    background-color: #f0dfe3;
+}
+
+#calendario #agregar .card{
+    margin-bottom: 5%;
+}
+
+#calendario #agregar .card-body{
+    align-content: center;
+}
+
+#calendario span {
+    color: red;
+}
+#calendario #agregar {
+    width: 50%;
+    
+}
+
+#calendario a{
+    text-decoration: none;
+}
+
+#calendario .btn{
+    margin-top: 1%;
+    margin-right: 2%;
+}
+
+#calendario #errorevento{
+    color: red;
+    text-align: center;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+#calendario #successevento{
+    color: green;
+    text-align: center;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+#calendario #nextweek {
+    float: right;
+    font-weight: 400;
+    margin-bottom: 1%;
+    font-size: small;
+}
+
+#calendario #prevweek {
+    float: left;
+    font-weight: 400;
+    margin-bottom: 1%;
+    font-size: small;
+}
+
+
+

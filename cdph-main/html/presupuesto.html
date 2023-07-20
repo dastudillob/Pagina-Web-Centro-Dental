@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Centro Dental Padre Hurtado | Presupuesto</title>
+
+    <!-- Favicon -->
+    <link href="../imagen/favicon.ico" rel="icon">
+
+    <!-- Boostrap 4 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Archivo de estilo -->
+    <link href="../css/estilo.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <!-- Logo -->
+        <div id="logo">
+            <a href="../index.html"><img src="../imagen/logo.png" alt="Centro Dental Padre Hurtado" title="Logo" /> CENTRO DENTAL "Padre Hurtado" </a>
+        </div>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-sm navbar-custom">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="buscarpaciente.html">Buscar Paciente<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="buscardentista.html">Buscar Dentista<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="nuevopaciente.html">Nuevo Paciente<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Calendario
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="caledariovinadelmar.html">Viña del Mar</a>
+                        <a class="dropdown-item" href="calendarioquilpue.html">Quilpue</a>
+                        <a class="dropdown-item" href="calendarioquillota.html">Quillota</a>
+                        <a class="dropdown-item" href="calendarioconcon.html">Con Con</a>
+                        <a class="dropdown-item" href="calendariolacalera.html">La Calera</a>
+                      </div>
+                  </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="presupuesto.html">Presupuesto<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="historialpagos.html">Historial de Pagos<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html" onclick="Salir()">Salir<span class="sr-only"></span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+
+    <section id="presupuesto">
+        <h4>Lista de Precios</h4>
+        <div class="container">
+            <div class="row" id="presupuestolista">
+                <div class="col-12">
+                    <input type="text" id="buscarservicio" onkeyup="BuscarServicio()" placeholder="Buscar servicios...">
+                    <table class="table table-bordered" id="listaservicio">
+                        <thead>
+                            <tr>
+                                <th scope="col" id="seleccioneservicio">Seleccione</th>
+                                <th scope="col">Servicio</th>
+                                <th scope="col">Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check1">
+                                        <label class="custom-control-label" for="check1"></label>
+                                    </div>
+                                </td>
+                                <td>Resina Simple</td>
+                                <td>20.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check2">
+                                        <label class="custom-control-label" for="check2"></label>
+                                    </div>
+                                </td>
+                                <td>Resina Compuesta</td>
+                                <td>25.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check3">
+                                        <label class="custom-control-label" for="check3"></label>
+                                    </div>
+                                </td>
+                                <td>Resina Compleja</td>
+                                <td>30.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check4">
+                                        <label class="custom-control-label" for="check4"></label>
+                                    </div>
+                                </td>
+                                <td>Destartraje + Profilaxis</td>
+                                <td>30.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check5">
+                                        <label class="custom-control-label" for="check5"></label>
+                                    </div>
+                                </td>
+                                <td>Reconstrucción en Resina</td>
+                                <td id="reconstruccion">
+                                    <output id="amount1" name="amount1" for="range1">40.000</output>
+                                    <input type="range" id="range1" name="range1" min="35000" max="45000" value="40000" step="1000" oninput="ShowAmount()">                                                       
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check6">
+                                        <label class="custom-control-label" for="check6"></label>
+                                    </div>
+                                </td>
+                                <td>Sellante</td>
+                                <td>10.000 x <input type="number" id="cantidad1" name="cantidad1" min="1" max="50" value="1"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check7">
+                                        <label class="custom-control-label" for="check7"></label>
+                                    </div>
+                                </td>
+                                <td>Blanqueamiento</td>
+                                <td>40.000 x <input type="number" id="cantidad2" name="cantidad2" min="1" max="50" value="1"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check8">
+                                        <label class="custom-control-label" for="check8"></label>
+                                    </div>
+                                </td>
+                                <td>Recementación Corona</td>
+                                <td>20.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check9">
+                                        <label class="custom-control-label" for="check9"></label>
+                                    </div>
+                                </td>
+                                <td>Corona Provisoria de Acrílico</td>
+                                <td id="provisoria">
+                                    <output id="amount2" name="amount2" for="range2">25.000</output>
+                                    <input type="range" id="range2" name="range2" min="20000" max="30000" value="25000" step="1000" oninput="ShowAmount()">                                                       
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check10">
+                                        <label class="custom-control-label" for="check10"></label>
+                                    </div>
+                                </td>
+                                <td>Corona Porcelana sobre diente vital</td>
+                                <td>170.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check11">
+                                        <label class="custom-control-label" for="check11"></label>
+                                    </div>
+                                </td>
+                                <td>Corona Porcelana sobre muñón</td>
+                                <td>200.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check12">
+                                        <label class="custom-control-label" for="check12"></label>
+                                    </div>
+                                </td>
+                                <td>Puente fijo en póntico / vital</td>
+                                <td>150.000 x <input type="number" id="cantidad3" name="cantidad3" min="1" max="50" value="1"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check13">
+                                        <label class="custom-control-label" for="check13"></label>
+                                    </div>
+                                </td>
+                                <td>Prótesis Acrílica</td>
+                                <td>150.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check14">
+                                        <label class="custom-control-label" for="check14"></label>
+                                    </div>
+                                </td>
+                                <td>Prótesis Metálica</td>
+                                <td>200.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check15">
+                                        <label class="custom-control-label" for="check15"></label>
+                                    </div>
+                                </td>
+                                <td>Prótesis Completa</td>
+                                <td>230.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check16">
+                                        <label class="custom-control-label" for="check16"></label>
+                                    </div>
+                                </td>
+                                <td>Prótesis Unilateral</td>
+                                <td>155.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check17">
+                                        <label class="custom-control-label" for="check17"></label>
+                                    </div>
+                                </td>
+                                <td>Prótesis Cosmética</td>
+                                <td>75.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check18">
+                                        <label class="custom-control-label" for="check18"></label>
+                                    </div>
+                                </td>
+                                <td>Incrustación Estética o Metálica</td>
+                                <td>105.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check19">
+                                        <label class="custom-control-label" for="check19"></label>
+                                    </div>
+                                </td>
+                                <td>Urgencia</td>
+                                <td id="urgencia">
+                                    <output id="amount3" name="amount3" for="range3">25.000</output>
+                                    <input type="range" id="range3" name="range3" min="20000" max="30000" value="25000" step="1000" oninput="ShowAmount()">                                                       
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check20">
+                                        <label class="custom-control-label" for="check20"></label>
+                                    </div>
+                                </td>
+                                <td>Endodoncia Incisivos y Caninos</td>
+                                <td id="incisivos">
+                                    <output id="amount4" name="amount4" for="range4">85.000</output>
+                                    <input type="range" id="range4" name="range4" min="80000" max="90000" value="85000" step="1000" oninput="ShowAmount()">                                                       
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check21">
+                                        <label class="custom-control-label" for="check21"></label>
+                                    </div>
+                                </td>
+                                <td>Endodoncia Premolar</td>
+                                <td>100.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check22">
+                                        <label class="custom-control-label" for="check22"></label>
+                                    </div>
+                                </td>
+                                <td>Endodoncia Molar</td>
+                                <td id="molar">
+                                    <output id="amount5" name="amount5" for="range5">145.000</output>
+                                    <input type="range" id="range5" name="range5" min="140000" max="150000" value="145000" step="1000" oninput="ShowAmount()">                                                       
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check23">
+                                        <label class="custom-control-label" for="check23"></label>
+                                    </div>
+                                </td>
+                                <td>Ferulización</td>
+                                <td>20.000 x <input type="number" id="cantidad4" name="cantidad4" min="1" max="50" value="1"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check24">
+                                        <label class="custom-control-label" for="check24"></label>
+                                    </div>
+                                </td>
+                                <td>Pulido Radicular Periodontitis (curetaje)</td>
+                                <td>20.000 x <input type="number" id="cantidad5" name="cantidad5" min="1" max="50" value="1"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check25">
+                                        <label class="custom-control-label" for="check25"></label>
+                                    </div>
+                                </td>
+                                <td>Exodoncia</td>
+                                <td id="exodoncia">
+                                    <output id="amount6" name="amount6" for="range6">30.000</output>
+                                    <input type="range" id="range6" name="range6" min="20000" max="40000" value="30000" step="1000" oninput="ShowAmount()">                                                       
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check26">
+                                        <label class="custom-control-label" for="check26"></label>
+                                    </div>
+                                </td>
+                                <td>Exodoncia 3er Molar</td>
+                                <td id="3ermolar">
+                                    <output id="amount7" name="amount7" for="range7">78.000</output>
+                                    <input type="range" id="range7" name="range7" min="35000" max="120000" value="78000" step="1000" oninput="ShowAmount()">                                                       
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check27">
+                                        <label class="custom-control-label" for="check27"></label>
+                                    </div>
+                                </td>
+                                <td>Carillas</td>
+                                <td>50.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check28">
+                                        <label class="custom-control-label" for="check28"></label>
+                                    </div>
+                                </td>
+                                <td>Ortodoncia Controles (sin costo de instalación)</td>
+                                <td>35.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check29">
+                                        <label class="custom-control-label" for="check29"></label>
+                                    </div>
+                                </td>
+                                <td>Implante Estándar</td>
+                                <td>300.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check30">
+                                        <label class="custom-control-label" for="check30"></label>
+                                    </div>
+                                </td>
+                                <td>Corona sobre implante</td>
+                                <td id="sobreimplante">
+                                    <output id="amount8" name="amount8" for="range8">225.000</output>
+                                    <input type="range" id="range8" name="range8" min="200000" max="250000" value="225000" step="1000" oninput="ShowAmount()">                                                       
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check31">
+                                        <label class="custom-control-label" for="check31"></label>
+                                    </div>
+                                </td>
+                                <td>Plano relajación o contención acetato</td>
+                                <td>80.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input id="estimar" type="text" value="" class="form-control" disabled><h5>TOTAL :</h5></div>
+                    <button type="button" class="btn btn-primary" onclick="CalcularPrecio()">Calcular</button>
+                    <button type="button" id="generar" class="btn btn-info" onclick="GenerarReporte()">Generar Reporte</button>
+                    <button type="button" class="btn btn-secondary" onclick="ReiniciarPrecio()">Reiniciar</button>
+                </div>
+
+                <!-- Generar Reporte -->
+                <div class="card card-body" id="info">
+                    <form id="inforeporte">
+                      <!-- Nombre -->
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="nombre">Nombre de Paciente</label>
+                            <input type="text" class="form-control" id="nombre">
+                          </div>
+                        </div>
+                      </div>
+  
+                      <!-- Fono -->
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="fono">Fono</label>
+                            <input type="tel" class="form-control" placeholder="" id="fono" onkeyup="FormatTeléfono()">
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Detalles -->
+                    <div id="selected">
+                        Detalles:<br/>
+                        <form>
+                            <div id="detalles"></div>
+                        </form>
+                    </div>
+
+                      <!-- Dentista -->
+                      <div class="row">
+                        <div class="col-sm-6">
+                            <label for="dentista">Dentista</label>
+                            <select id="dentista" class="form-control">
+                              <option selected disabled>Seleccione...</option>
+                              <option value="Andres Jeremy">Andres Jeremy</option>
+                              <option value="Teodora Denisse">Teodora Denisse</option>
+                              <option value="Marjorie Fidelia">Marjorie Fidelia</option>
+                              <option value="Solón Diego">Solón Diego</option>
+                              <option value="Eustasio Jorge">Eustasio Jorge</option>
+                              <option value="Stephanie Alexandra">Stephanie Alexandra</option>
+                              <option value="Agueda">Agueda</option>
+                            </select>
+                        </div>
+                      </div>
+
+                      <!-- Notas -->
+                      <div class="row" id="notass">
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            <label for="notas">Notas</label>
+                              <textarea class="form-control" id="notas" rows="3"></textarea>
+                          </div>
+                      </div>
+                      </div>
+                      </form>
+                      <button type="button" class="btn btn-success" onclick="Generar()">Generar</button>
+                      <button type="button" class="btn btn-secondary" onclick="Cancelar()">Cancelar</button>
+                  </div>
+                  </div>
+            </div>
+    </section>
+
+    <!-- Boostrap 4 JS-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+   <!-- Archivo de JS -->
+   <script src="../javascript/presupuesto.js"></script>
+
+    <!-- jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

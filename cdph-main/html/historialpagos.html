@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Centro Dental Padre Hurtado | Historial de Pagos</title>
+
+    <!-- Favicon -->
+    <link href="../imagen/favicon.ico" rel="icon">
+
+    <!-- Boostrap 4 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Archivo de estilo -->
+    <link href="../css/estilo.css" rel="stylesheet">
+
+    <!-- Datatable CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <!-- Logo -->
+        <div id="logo">
+            <a href="../index.html"><img src="../imagen/logo.png" alt="Centro Dental Padre Hurtado" title="Logo" /> CENTRO DENTAL "Padre Hurtado" </a>
+        </div>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-sm navbar-custom">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="buscarpaciente.html">Buscar Paciente<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="buscardentista.html">Buscar Dentista<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="nuevopaciente.html">Nuevo Paciente<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Calendario
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="caledariovinadelmar.html">Viña del Mar</a>
+                        <a class="dropdown-item" href="calendarioquilpue.html">Quilpue</a>
+                        <a class="dropdown-item" href="calendarioquillota.html">Quillota</a>
+                        <a class="dropdown-item" href="calendarioconcon.html">Con Con</a>
+                        <a class="dropdown-item" href="calendariolacalera.html">La Calera</a>
+                      </div>
+                  </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="presupuesto.html">Presupuesto<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="historialpagos.html">Historial de Pagos<span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html" onclick="Salir()">Salir<span class="sr-only"></span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+
+    <section id="historialpagos">
+        <h4>Historial de Pagos</h4>
+        <div id="selecttype">
+            <p>Mostrar total de pagos por:</p>
+            <button type="button" class="btn btn-outline-warning collapsible" id="diariobutton">Diario</button>
+            <button type="button" class="btn btn-outline-primary" id="mensualbutton">Mensual</button>
+            <button type="button" class="btn btn-outline-success" id="anualbutton">Anual</button>
+        </div>
+       
+        <!-- Diario -->
+        <div id="diariocard">
+            <br/>
+            <label for="fechapagos">Fecha:</label>
+            <input type="text" class="form-control" placeholder="dd-mm-yyyy" id="fechapagos" value="" onkeyup="FormatDiario()" maxlength="10">
+            <div id="errordiario"></div>
+            <button type="button" class="btn btn-warning" id="mostrardiario">Mostrar</button>
+            <button type="button" class="btn btn-secondary" id="cancelardiario">Cancelar</button>
+        </div>
+
+        <!-- Mensual -->
+        <div id="mensualcard">
+            <br/>
+            <label for="mens">Fecha:</label>
+            <input type="text" class="form-control" placeholder="mm-yyyy" id="mens" value="" onkeyup="FormatMensual()" maxlength="7">
+            <div id="errormensual"></div>
+            <button type="button" class="btn btn-primary" id="mostrarmensual">Mostrar</button>
+            <button type="button" class="btn btn-secondary" id="cancelarmensual">Cancelar</button>
+        </div>
+
+        <!-- Anual -->
+        <div id="anualcard">
+            <br/>
+            <label for="anu">Fecha:</label>
+            <input type="text" class="form-control" placeholder="yyyy" id="anu" value="" maxlength="4">
+            <div id="erroranual"></div>
+            <button type="button" class="btn btn-success" id="mostraranual">Mostrar</button>
+            <button type="button" class="btn btn-secondary" id="cancelaranual">Cancelar</button>
+        </div>
+
+
+        <!-- Statistics Summary -->
+        <div id="summary">
+            <h5 id="summarytitle"></h5>
+            <div class="container">
+              <div class="row" id="presupuestolista">
+                  <div class="col-12">
+                      <table class="table table-bordered" id="summarytable">
+                          <thead>
+                              <tr>
+                                  <th scope="col">Estadísticas</th>
+                                  <th scope="col">Cantidad</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <td>Total ingreso de pagos</td>
+                                <td>$560.000</td>
+                            </tr>
+                            
+                              <tr>
+                                  <td>Número total de transacciones</td>
+                                  <td>5</td>
+                              </tr>
+        
+                              <tr>
+                                  <td>Número de cancelados</td>
+                                  <td>4</td>
+                              </tr>
+      
+                              <tr>
+                                  <td>Número de pendientes</td>
+                                  <td>1</td>
+                              </tr>
+      
+                              <tr>
+                                  <td>Forma de Pago: Efectivo</td>
+                                  <td>3</td>
+                              </tr>
+      
+                              <tr>
+                                  <td>Forma de Pago: Tarjeta</td>
+                                  <td>1</td>
+                              </tr>
+      
+                              <tr>
+                                  <td>Forma de Pago: Cheque</td>
+                                  <td>2</td>
+                              </tr>
+                  </tbody>
+                  </table>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+
+        <!-- Diario table of pagos -->
+        <div id="diariotable">
+            <h5>Detalles</h5>
+              <table id="tabladiario" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Monto</th>
+                        <th>Forma de Pago</th>
+                        <th>Estado</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09-06-2021</td>
+                        <td>$63.000</td>
+                        <td>Efectivo</td>
+                        <td>Cancelado</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>09-06-2021</td>
+                        <td>$136.000</td>
+                        <td>Tarjeta</td>
+                        <td>Cancelado</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>09-06-2021</td>
+                        <td>$89.000</td>
+                        <td>Cheque</td>
+                        <td>Pendiente</td>
+                        <td>Primer abono del total.</td>
+                    </tr>
+                  </tbody>
+                  </table>
+        </div>
+
+        <!-- Mensual table of pagos -->
+        <div id="mensualtable">
+            <h5>Detalles</h5>
+            <table id="tablamensual" class="table table-striped table-bordered" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>Fecha</th>
+                      <th>Monto</th>
+                      <th>Forma de Pago</th>
+                      <th>Estado</th>
+                      <th>Observaciones</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>09-06-2021</td>
+                      <td>$63.000</td>
+                      <td>Efectivo</td>
+                      <td>Cancelado</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>05-06-2021</td>
+                      <td>$136.000</td>
+                      <td>Tarjeta</td>
+                      <td>Cancelado</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>01-06-2021</td>
+                      <td>$89.000</td>
+                      <td>Cheque</td>
+                      <td>Pendiente</td>
+                      <td>Primer abono del total.</td>
+                  </tr>
+                  <tr>
+                    <td>03-06-2021</td>
+                    <td>$95.000</td>
+                    <td>Cheque</td>
+                    <td>Pendiente</td>
+                    <td>Primer abono del total.</td>
+                </tr>
+                </tbody>
+                </table>
+      </div>
+
+      <!-- Anual table of pagos -->
+      <div id="anualtable">
+        <h5>Detalles</h5>
+        <table id="tablaanual" class="table table-striped table-bordered" style="width:100%">
+          <thead>
+              <tr>
+                  <th>Fecha</th>
+                  <th>Monto</th>
+                  <th>Forma de Pago</th>
+                  <th>Estado</th>
+                  <th>Observaciones</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>09-06-2021</td>
+                  <td>$63.000</td>
+                  <td>Efectivo</td>
+                  <td>Cancelado</td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td>05-06-2021</td>
+                  <td>$136.000</td>
+                  <td>Tarjeta</td>
+                  <td>Cancelado</td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td>01-06-2021</td>
+                  <td>$89.000</td>
+                  <td>Cheque</td>
+                  <td>Pendiente</td>
+                  <td>Primer abono del total.</td>
+              </tr>
+              <tr>
+                <td>03-06-2021</td>
+                <td>$95.000</td>
+                <td>Cheque</td>
+                <td>Pendiente</td>
+                <td>Primer abono del total.</td>
+            </tr>
+            <tr>
+                <td>12-04-2021</td>
+                <td>$95.000</td>
+                <td>Cheque</td>
+                <td>Cancelado</td>
+                <td>beep beep</td>
+            </tr>
+            </tbody>
+            </table>
+  </div>
+
+    </section>
+
+
+
+        <!-- Boostrap 4 JS-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+       <!-- Archivo de JS -->
+       <script src="../javascript/historialpagos.js"></script>
+
+       
+    <!-- Datatable JS -->
+   <script type="text/javascript" src="../javascript/datatables.js"></script>
+    </body>
+</html>
